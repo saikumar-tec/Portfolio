@@ -110,5 +110,56 @@ stages:
                containers: '$(acrName)/$(imageName):$(imageTag)'
 
 
+# ======================
+# DEPLOY EAST CLUSTER
+# ======================
+
+
+- stage: Deploy_West
+
+  displayName: Deploy To West AKS
+
+  dependsOn: Build
+
+
+  jobs:
+
+  - deployment: DeployWest
+
+    displayName: AKS West Deployment
+
+    environment: aks-west
+
+
+    pool:
+
+      vmImage: ubuntu-latest
+
+
+    strategy:
+
+      runOnce:
+
+        deploy:
+
+          steps:
+            - checkout: self
+
+
+            - task: KubernetesManifest@1
+
+              displayName: Deploy Frontend west
+
+              inputs:
+               action: 'deploy'
+               connectionType: 'kubernetesServiceConnection'
+               kubernetesServiceConnection: 'aks-west-connection'
+               namespace: 'default'
+               manifests: '$(Build.SourcesDirectory)/k8s/frontend-deployment.yaml'
+               containers: '$(acrName)/$(imageName):$(imageTag)'
+
+
+
+
 
 
