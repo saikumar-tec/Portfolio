@@ -105,7 +105,7 @@ stages:
               connectionType: 'kubernetesServiceConnection'
               kubernetesServiceConnection: 'aks-east-connection'
               namespace: 'default'
-              manifests: 'k8s/frontend-deployment.yaml'
+              manifests: '$(Build.SourcesDirectory)/k8s/frontend-deployment.yaml'
               containers: '$(acrName)/$(imageName):$(imageTag)'
 
 
