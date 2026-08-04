@@ -94,19 +94,20 @@ stages:
         deploy:
 
           steps:
+            - checkout: self
 
 
-          - task: KubernetesManifest@1
+            - task: KubernetesManifest@1
 
-            displayName: Deploy Frontend East
+              displayName: Deploy Frontend East
 
-            inputs:
-              action: 'deploy'
-              connectionType: 'kubernetesServiceConnection'
-              kubernetesServiceConnection: 'aks-east-connection'
-              namespace: 'default'
-              manifests: '$(Build.SourcesDirectory)/k8s/frontend-deployment.yaml'
-              containers: '$(acrName)/$(imageName):$(imageTag)'
+              inputs:
+               action: 'deploy'
+               connectionType: 'kubernetesServiceConnection'
+               kubernetesServiceConnection: 'aks-east-connection'
+               namespace: 'default'
+               manifests: '$(Build.SourcesDirectory)/k8s/frontend-deployment.yaml'
+               containers: '$(acrName)/$(imageName):$(imageTag)'
 
 
 
