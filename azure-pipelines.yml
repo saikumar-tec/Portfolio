@@ -1,46 +1,50 @@
 trigger:
-
 - main
 
-
 variables:
-
+  nodeVersion: '20.x'
   imageName: frontend
-
   acrName: portfolio1.azurecr.io
+  imageTag: $(Build.BuildId)
 
 
+# ======================
+# BUILD AND PUSH IMAGE
+# ======================
 
 stages:
 
-
-# ======================
-# BUILD STAGE
-# ======================
-
 - stage: Build
-
+  displayName: Build and Push Docker Image
 
   jobs:
 
   - job: DockerBuild
 
-
     pool:
-
       vmImage: ubuntu-latest
 
-
     steps:
-
 
     - checkout: self
 
 
+    # Optional React validation build
+    - task: NodeTool@0
+      displayName: Install Node.js
+      inputs:
+        versionSpec: $(nodeVersion)
+
+
+    - script: |
+        npm install
+        npm run build
+        ls -la dist
+      displayName: Validate React Build
+
 
     - task: Docker@2
-
-      displayName: Build Image
+      displayName: Build and Push Image
 
       inputs:
 
@@ -48,50 +52,32 @@ stages:
 
         repository: $(imageName)
 
-        command: build
+        command: buildAndPush
 
         Dockerfile: Dockerfile
 
         tags: |
-
-          $(Build.BuildId)
-
-
-
-    - task: Docker@2
-
-      displayName: Push Image
-
-      inputs:
-
-        containerRegistry: acr-connection
-
-        repository: $(imageName)
-
-        command: push
-
-        tags: |
-
-          $(Build.BuildId)
+          $(imageTag)
 
 
 
 # ======================
-# DEPLOY STAGE EAST
+# DEPLOY EAST CLUSTER
 # ======================
 
 
 - stage: Deploy_East
 
+  displayName: Deploy To East AKS
 
   dependsOn: Build
 
 
   jobs:
 
+  - deployment: DeployEast
 
-  - deployment: AKS_East
-
+    displayName: AKS East Deployment
 
     environment: aks-east
 
@@ -103,52 +89,46 @@ stages:
 
     strategy:
 
-
       runOnce:
 
-
         deploy:
-
 
           steps:
 
 
           - task: KubernetesManifest@1
 
+            displayName: Deploy Frontend East
 
             inputs:
 
-
               action: deploy
 
-
               kubernetesServiceConnection: aks-east-connection
-
 
               namespace: default
 
 
               manifests: |
 
-
-                k8s/frontend-deployment.yaml
-
-                
+                $(System.DefaultWorkingDirectory)/k8s/frontend-deployment.yaml
 
 
               containers: |
 
+                $(acrName)/$(imageName):$(imageTag)
 
-                portfolio1.azurecr.io/frontend:$(Build.BuildId)
 
 
 
 # ======================
-# DEPLOY WEST
+# DEPLOY WEST CLUSTER
 # ======================
 
 
 - stage: Deploy_West
+
+  displayName: Deploy To West AKS
 
 
   dependsOn: Deploy_East
@@ -157,7 +137,9 @@ stages:
   jobs:
 
 
-  - deployment: AKS_West
+  - deployment: DeployWest
+
+    displayName: AKS West Deployment
 
 
     environment: aks-west
@@ -182,6 +164,8 @@ stages:
 
           - task: KubernetesManifest@1
 
+            displayName: Deploy Frontend West
+
 
             inputs:
 
@@ -197,13 +181,9 @@ stages:
 
               manifests: |
 
-
-                k8s/frontend-deployment.yaml
-
-                
+                $(System.DefaultWorkingDirectory)/k8s/frontend-deployment.yaml
 
 
               containers: |
 
-
-                portfolio1.azurecr.io/frontend:$(Build.BuildId)
+                $(acrName)/$(imageName):$(imageTag)
