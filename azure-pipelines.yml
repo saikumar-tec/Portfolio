@@ -111,7 +111,7 @@ stages:
 
               manifests: |
 
-                $(System.DefaultWorkingDirectory)/k8s/frontend-deployment.yaml
+                k8s/frontend-deployment.yaml
 
 
               containers: |
@@ -181,7 +181,7 @@ stages:
 
               manifests: |
 
-                $(System.DefaultWorkingDirectory)/k8s/frontend-deployment.yaml
+                k8s/frontend-deployment.yaml
 
 
               containers: |
