@@ -1,0 +1,541 @@
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+    color:#fff;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#3b82f6;
+    opacity:.15;
+    border-radius:50%;
+    top:-180px;
+    right:-120px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#38bdf8;
+    opacity:.12;
+    border-radius:50%;
+    bottom:-100px;
+    left:-100px;
+}
+
+.hero-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+    min-height:100vh;
+    position:relative;
+    z-index:1;
+}
+
+/* ==========================================
+LEFT SIDE
+========================================== */
+
+.hero-left{
+    animation:slideLeft 1s ease;
+}
+
+.hero-subtitle{
+    color:#38bdf8;
+    font-size:20px;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.hero-left h1{
+    font-size:64px;
+    margin-bottom:15px;
+    color:#fff;
+}
+
+.hero-left h2{
+    font-size:34px;
+    margin-bottom:25px;
+    color:#38bdf8;
+}
+
+.hero-description{
+    color:#d1d5db;
+    font-size:18px;
+    line-height:1.8;
+    max-width:600px;
+}
+
+/* ==========================================
+BUTTONS
+========================================== */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* ==========================================
+SOCIAL ICONS
+========================================== */
+
+.hero-social{
+    display:flex;
+    gap:20px;
+    margin-top:40px;
+}
+
+.hero-social a{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ffffff15;
+    color:#fff;
+    font-size:24px;
+    transition:.3s;
+}
+
+.hero-social a:hover{
+    background:#0078D4;
+    transform:translateY(-6px);
+}
+
+/* ==========================================
+RIGHT SIDE
+========================================== */
+
+.hero-right{
+    display:flex;
+    justify-content:center;
+    animation:slideRight 1s ease;
+}
+
+.profile-card{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    padding:8px;
+    background:linear-gradient(45deg,#0078D4,#38bdf8,#ffffff);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    animation:float 4s ease-in-out infinite;
+}
+
+.profile-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+}
+
+/* ==========================================
+TECH GRID
+========================================== */
+
+.tech-grid{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.tech-card{
+    background:#ffffff10;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    transition:.35s;
+}
+
+.tech-card svg{
+    font-size:50px;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.tech-card h3{
+    margin-bottom:15px;
+    color:#fff;
+}
+
+.tech-card p{
+    color:#d1d5db;
+}
+
+.tech-card:hover{
+    transform:translateY(-10px);
+    background:#ffffff18;
+}
+/*=========================================================
+STATISTICS
+=========================================================*/
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:80px;
+
+    margin-bottom:60px;
+
+}
+
+.stat{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-10px);
+
+    background:#0078D4;
+
+}
+
+.stat h2{
+
+    color:#fff;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.stat p{
+
+    color:#d1d5db;
+
+    font-size:16px;
+
+}
+
+/*=========================================================
+ANIMATIONS
+=========================================================*/
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-100px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(100px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+.profile-card{
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+/*=========================================================
+BUTTON HOVER
+=========================================================*/
+
+.btn{
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.btn-outline{
+
+    transition:.3s;
+
+}
+
+.btn-outline:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================================
+TECH CARD ICON
+=========================================================*/
+
+.tech-card:hover svg{
+
+    transform:scale(1.15);
+
+    transition:.3s;
+
+}
+
+/*=========================================================
+RESPONSIVE 992px
+=========================================================*/
+
+@media(max-width:992px){
+
+.hero-container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+padding-top:120px;
+
+}
+
+.hero-description{
+
+margin:auto;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-social{
+
+justify-content:center;
+
+}
+
+.profile-card{
+
+margin-top:40px;
+
+}
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/*=========================================================
+RESPONSIVE 768px
+=========================================================*/
+
+@media(max-width:768px){
+
+.hero-left h1{
+
+font-size:46px;
+
+}
+
+.hero-left h2{
+
+font-size:28px;
+
+}
+
+.profile-card{
+
+width:320px;
+
+height:320px;
+
+}
+
+.tech-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/*=========================================================
+RESPONSIVE 480px
+=========================================================*/
+
+@media(max-width:480px){
+
+.hero{
+
+padding-top:60px;
+
+}
+
+.hero-left h1{
+
+font-size:34px;
+
+}
+
+.hero-left h2{
+
+font-size:22px;
+
+}
+
+.hero-description{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons .btn,
+
+.hero-buttons .btn-outline{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.profile-card{
+
+width:260px;
+
+height:260px;
+
+}
+
+.hero-social{
+
+gap:15px;
+
+}
+
+.hero-social a{
+
+width:45px;
+
+height:45px;
+
+font-size:20px;
+
+}
+
+.tech-card{
+
+padding:20px;
+
+}
+
+.stat{
+
+padding:20px;
+
+}
+
+}

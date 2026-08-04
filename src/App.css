@@ -1,0 +1,467 @@
+/* =======================================================
+   GLOBAL RESET
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =======================================================
+   ROOT VARIABLES
+======================================================= */
+
+:root{
+
+    --primary:#0078D4;
+    --secondary:#005A9E;
+
+    --dark:#0F172A;
+
+    --light:#F8FAFC;
+
+    --white:#FFFFFF;
+
+    --gray:#6B7280;
+
+    --border:#E5E7EB;
+
+    --success:#22C55E;
+
+    --danger:#EF4444;
+
+    --shadow:0px 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* =======================================================
+   HTML
+======================================================= */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* =======================================================
+   BODY
+======================================================= */
+
+body{
+
+    font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
+    background:var(--light);
+
+    color:var(--dark);
+
+    overflow-x:hidden;
+
+}
+
+/* =======================================================
+   LINKS
+======================================================= */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* =======================================================
+   IMAGE
+======================================================= */
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* =======================================================
+   BUTTON
+======================================================= */
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+/* =======================================================
+   CONTAINER
+======================================================= */
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+/* =======================================================
+   SECTION
+======================================================= */
+
+section{
+
+    padding:90px 0;
+
+}
+
+/* =======================================================
+   HEADINGS
+======================================================= */
+
+h1{
+
+    font-size:56px;
+
+    font-weight:700;
+
+}
+
+h2{
+
+    font-size:42px;
+
+    margin-bottom:25px;
+
+}
+
+h3{
+
+    font-size:26px;
+
+    margin-bottom:15px;
+
+}
+
+h4{
+
+    font-size:20px;
+
+}
+
+/* =======================================================
+   PARAGRAPH
+======================================================= */
+
+p{
+
+    line-height:1.8;
+
+    color:var(--gray);
+
+}
+
+/* =======================================================
+   COMMON TITLE
+======================================================= */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+    color:var(--dark);
+
+}
+
+.section-title p{
+
+    width:70%;
+
+    margin:auto;
+
+}
+
+/* =======================================================
+   PRIMARY BUTTON
+======================================================= */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 32px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:6px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.btn:hover{
+
+    background:var(--secondary);
+
+    transform:translateY(-3px);
+
+}
+
+/* =======================================================
+   SECONDARY BUTTON
+======================================================= */
+
+.btn-outline{
+
+    display:inline-block;
+
+    padding:14px 32px;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    border-radius:6px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* =======================================================
+   CARD
+======================================================= */
+
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow);
+
+    padding:30px;
+
+}
+
+/* =======================================================
+   GRID
+======================================================= */
+
+.grid{
+
+    display:grid;
+
+    gap:30px;
+
+}
+
+/* =======================================================
+   FLEX
+======================================================= */
+
+.flex{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+/* =======================================================
+   TEXT COLORS
+======================================================= */
+
+.text-primary{
+
+    color:var(--primary);
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+/* =======================================================
+   MARGIN
+======================================================= */
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:30px;}
+.mt-4{margin-top:40px;}
+.mt-5{margin-top:50px;}
+
+.mb-1{margin-bottom:10px;}
+.mb-2{margin-bottom:20px;}
+.mb-3{margin-bottom:30px;}
+.mb-4{margin-bottom:40px;}
+.mb-5{margin-bottom:50px;}
+
+/* =======================================================
+   SCROLLBAR
+======================================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ECECEC;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--secondary);
+
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media(max-width:1024px){
+
+    h1{
+
+        font-size:44px;
+
+    }
+
+    h2{
+
+        font-size:34px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    section{
+
+        padding:70px 0;
+
+    }
+
+    h1{
+
+        font-size:36px;
+
+    }
+
+    h2{
+
+        font-size:30px;
+
+    }
+
+    .flex{
+
+        flex-direction:column;
+
+    }
+
+    .section-title p{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+    h2{
+
+        font-size:26px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .btn-outline{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
+main{
+
+    margin-top:75px;
+
+}
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
