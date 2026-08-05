@@ -24,7 +24,7 @@ const skills = [
   {
     title: "Microsoft Azure",
     icon: <FaMicrosoft />,
-    level: 95,
+    level: 75,
   },
   {
     title: "Azure DevOps",
@@ -59,12 +59,12 @@ const skills = [
   {
     title: "Jenkins",
     icon: <SiJenkins />,
-    level: 82,
+    level: 45,
   },
   {
     title: "Ansible",
     icon: <SiAnsible />,
-    level: 80,
+    level: 50,
   },
   {
     title: "Git",

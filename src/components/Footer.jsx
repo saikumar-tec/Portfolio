@@ -122,7 +122,7 @@ function Footer() {
               </a>
 
               <a
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/saikumar-kotrangi-8a366b267/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -132,7 +132,7 @@ function Footer() {
               </a>
 
               <a
-                href="mailto:yourmail@gmail.com"
+                href="mailto:kotrangisaikumar668@gmail.com"
               >
 
                 <FaEnvelope/>
